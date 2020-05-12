@@ -44,6 +44,6 @@ c - After review, enter "Yes" to create the objects
 
 7 - Wait ~3 minutes for the start-up script to complete.
 
-8 - Navigate to <ec2-public-ip>:5000  - The page should say "Your IP Address is YOUR_IP"
+8 - Navigate to SimpliSafeIP:5000  - The page should say "Your IP Address is YOUR_IP"
   
 9 - To Clean Up: Simply run `terraform destroy` in both the *ec2* and *s3* folders.
