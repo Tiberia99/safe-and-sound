@@ -46,4 +46,10 @@ c - After review, enter "Yes" to create the objects
 
 8 - Navigate to SimpliSafeIP:5000  - The page should say "Your IP Address is YOUR_IP"
   
-9 - To Clean Up: Simply run `terraform destroy` in both the *ec2* and *s3* folders.
+9 - *To Clean Up:* Simply run `terraform destroy` in both the *ec2* and *s3* folders.
+
+**Known Issues**
+
+User-data is only run at launch time.  As such, if the instance is rebooted, the python webserver will *not* automatically restart and will require manual intervention.
+
+Hard-coded:  AWS profile, bucket name, other names and tags.
