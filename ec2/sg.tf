@@ -15,7 +15,7 @@ resource "aws_security_group" "allow_home" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["209.6.68.75/32"]
+    cidr_blocks = ["${var.your_ip}"]
   }
   
   ingress {
@@ -23,7 +23,7 @@ resource "aws_security_group" "allow_home" {
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
-    cidr_blocks = ["209.6.68.75/32"]
+    cidr_blocks = ["${var.your_ip}"]
   }
 
   egress {
