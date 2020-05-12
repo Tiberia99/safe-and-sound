@@ -52,4 +52,8 @@ c - After review, enter "Yes" to create the objects
 
 User-data is only run at launch time.  As such, if the instance is rebooted, the python webserver will *not* automatically restart and will require manual intervention.
 
+Code updates require re-running Terraform and destroying & recreating "perfectly good" servers.
+
+This could be fixed by running the Python as a service and/or a Cron job that periodically checks for updates in the S3 bucket, downloading and restarting when changes are detected.  Maybe in a future version.  (Though that approach would incur downtime; running multiple backends behind a load balancer would resolve that issue.  But I think I'm getting ahead of myself for a 5-line interview test.)
+
 Hard-coded:  AWS profile, bucket name, other names and tags.
