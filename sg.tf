@@ -5,9 +5,9 @@ resource "aws_default_vpc" "default" {
 }
 
 
-resource "aws_security_group" "allow_home" {
-  name        = "allow_home"
-  description = "Allow home inbound traffic"
+resource "aws_security_group" "allow_home_ip" {
+  name        = "allow_home_ip"
+  description = "Allow home IP inbound traffic"
   vpc_id      = "${aws_default_vpc.default.id}"
 
   ingress {
@@ -15,7 +15,7 @@ resource "aws_security_group" "allow_home" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.your_ip}"]
+    cidr_blocks = ["${var.home_ip}"]
   }
   
   ingress {
@@ -23,7 +23,7 @@ resource "aws_security_group" "allow_home" {
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
-    cidr_blocks = ["${var.your_ip}"]
+    cidr_blocks = ["${var.home_ip}"]
   }
 
   egress {
@@ -34,6 +34,6 @@ resource "aws_security_group" "allow_home" {
   }
 
   tags = {
-    Name = "allow_home"
+    Name = "allow_home_ip"
   }
 }
