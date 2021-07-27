@@ -6,7 +6,7 @@ resource "aws_key_pair" "upvote-downvote-key" {
 resource "aws_instance" "upvote-downvote" {
   ami = "ami-07c1207a9d40bc3bd" #Ubuntu
   instance_type = "t2.micro"
-  iam_instance_profile = "${aws_iam_instance_profile.steven_profile.name}"
+  iam_instance_profile = "${aws_iam_instance_profile.my_profile.name}"
   vpc_security_group_ids = [aws_security_group.allow_home_ip.id]
   key_name = "${aws_key_pair.upvote-downvote-key.key_name}"
   user_data = templatefile("userdata.tpl", {user_data_bucket_name = var.bucket_name}) #v0.12 and later
