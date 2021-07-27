@@ -1,10 +1,10 @@
-resource "aws_iam_instance_profile" "steven_profile" {
-  name = "steven_profile"
+resource "aws_iam_instance_profile" "my_profile" {
+  name = "my_profile"
   role = "${aws_iam_role.role.name}"
 }
 
 resource "aws_iam_role" "role" {
-  name = "steven_role"
+  name = "my_role"
   path = "/"
 
   assume_role_policy = <<EOF
@@ -25,8 +25,8 @@ EOF
 }
 
 
-resource "aws_iam_role_policy" "steven_policy" {
-  name = "steven_policy"
+resource "aws_iam_role_policy" "my_policy" {
+  name = "my_policy"
   role = aws_iam_role.role.id
 
   policy = <<-EOF
