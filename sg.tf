@@ -1,6 +1,6 @@
 resource "aws_default_vpc" "default" {
   tags = {
-    Name = "Steven Default VPC"
+    Name = "My Default VPC"
   }
 }
 
